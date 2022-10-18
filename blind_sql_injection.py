@@ -123,9 +123,6 @@ def binary_search_determine_password(url:str, password_len:int, timeout:int=10):
     return password
 
 url:str = parse_args()
-timeout = 5
-
+timeout = 3
 password   = linear_search_determine_password(url=url, password_len=determine_password_length(url, timeout), timeout=timeout)
-# password = binary_search_determine_password(url=url, 
-#                                             password_len=determine_password_length(url=url, timeout=timeout),
-#                                             timeout=timeout)
+# password = binary_search_determine_password(url=url, password_len=determine_password_length(url=url, timeout=timeout), timeout=timeout)
